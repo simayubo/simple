@@ -28,15 +28,15 @@ class Controller extends Smarty{
 		
 		if (APP_NAME == 'Home') { //前台
 
-			$template_dir   = './templates/default/';  //模板路径
-			$template_c_dir = './include/cache/templates_c/'; //模板缓存路径
+			$template_dir   = ROOT_PATH.'templates/default/'; 
+			$template_c_dir = ROOT_PATH.'include/cache/templates_c/'; 
 
 		}else if (APP_NAME == 'Admin') {  //后台
 
-			$template_dir   = './admin/template/'; 
-			$template_c_dir = './include/cache/admin/templates_c/'; //模板缓存路径
+			$template_dir   = ROOT_PATH.'admin/template/'; 
+			$template_c_dir = ROOT_PATH.'include/cache/admin/templates_c/'; //模板缓存路径
 
-			if (empty($_SESSION['login']) || $_SESSION['login'] != 'TRUE' ) {
+			if (empty($_SESSION['login']) || $_SESSION['login'] != 1 ) {
 				
 				exit("非法访问！系统已自动记录你的IP地址！");
 			}

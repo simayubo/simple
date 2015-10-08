@@ -19,7 +19,7 @@ body { background: #e6e6e6; font-family: "Open Sans","SimSun", Helvetica, Arial,
 .article-list span { margin: 23px 0; display: block; }
 .article-list span a {color: #757575; text-decoration: underline; font-size: 0.82em; letter-spacing:1px;  }
 .article-list span a:hover { color: #21759b; }
-.article-list p { font-size: 0.9em; line-height: 1.6em; text-transform: uppercase; color: #444; }
+.article-list p { font-size: 0.9em; line-height: 1.6em; color: #444; }
 .article-list h5 a { display: block; color: #21759b; text-decoration: underline; margin: 20px 0 8px 0; font-weight: 300; font-size: 14px; }
 .comment { color:#444; }
 .comment label{ display:block; line-height:40px; }

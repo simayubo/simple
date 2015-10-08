@@ -9,6 +9,7 @@
 * @author: BO
 * @version: 0.1
 */
+if( !defined('APP_NAME')) { exit('Error!'); }
 
 require_once ROOT_PATH.'include/common/Controller.class.php';
 
@@ -37,7 +38,7 @@ class IndexController extends Controller {
 	 */
 	public function login() {
 
-		if (!empty($_SESSION['login']) && $_SESSION['login'] == 1 && defined('IS_LOGIN') && IS_LOGIN == 1 ) {
+		if (!empty($_SESSION['login']) && $_SESSION['login'] == 1 ) {
 			
 			header("location:/admin.php");
 			exit();
@@ -54,7 +55,7 @@ class IndexController extends Controller {
 					$res = $this ->D('Common') ->getUser(I($_POST['username']));
 					if ($res && I($_POST['password']) == authcode($res['pwd'], 'DECODE') ) {
 						
-						$_SESSION['login'] = 'TRUE';  //写入session
+						$_SESSION['login'] = 1;  //写入session
 						header("location:/admin.php"); //跳转后台
 						
 					} else{ $err = '用户名或密码错误！'; }

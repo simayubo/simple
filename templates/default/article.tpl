@@ -6,15 +6,15 @@
 		<{else}>
 			<h1><a href="/Article/show/id/<{$article.aid}>" title="<{$article.title}>"><{$article.title}></a></h1>
 			<span><a href="#"><{$article.sortname}></a> | <a><{$article.date}></a> | <a href="#comment">评论<{$article.comnum}>次</a><!--  | <a href="#">阅读<{$article.views}>次</a> --></span>
-			<p><{$article.content}></p>
+			<p><{$article.content|htmlspecialchars_decode}></p>
 		
 	</div>
 	<div class="xl">
 		<span class='left'><{if $adjacent.last neq null}>
-			<a href="/Article/show/id/<{$adjacent.last.aid}>" title="上篇文章 <{$adjacent.last.title}>"><<<{$adjacent.last.title}></a><{/if}>
+			<a href="/Article/show/id/<{$adjacent.last.aid}>" title="上篇文章 <{$adjacent.last.title}>">上一篇：<{$adjacent.last.title}></a><{/if}>
 		</span>
 		<span class='right'><{if $adjacent.next neq null}>
-			<a href="/Article/show/id/<{$adjacent.next.aid}>" title="下篇文章 <{$adjacent.next.title}>"><{$adjacent.next.title}>>></a><{/if}>
+			<a href="/Article/show/id/<{$adjacent.next.aid}>" title="下篇文章 <{$adjacent.next.title}>">下一篇：<{$adjacent.next.title}></a><{/if}>
 		</span>
 		<div class="clean"></div>
 	</div>

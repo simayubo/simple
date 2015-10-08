@@ -10,6 +10,9 @@
 * @author: BO
 * @version: 0.1
 */
+
+if( !defined('APP_NAME')) { exit('Error!'); }
+
 require_once ROOT_PATH.'include/common/Model.class.php';
 
 class ArticleModel extends Model {
@@ -34,6 +37,7 @@ class ArticleModel extends Model {
 				sp_sort.sortalias
 			FROM	
 				sp_articles LEFT JOIN sp_sort ON sp_articles.sortid = sp_sort.sortid 
+			WHERE sp_articles.hide = 'n' 
 			ORDER BY sp_articles.aid DESC 
 			LIMIT ?,?
 		";

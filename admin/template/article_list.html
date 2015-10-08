@@ -1,0 +1,95 @@
+<{include file="header.html"}>
+<div class='title-nav'>文章列表</div>
+<div class='article-list'>
+	<table cellspacing="0" cellpadding="0">
+		<tr>
+			<th><input type="checkbox" id="btu" value="全选" /></th>
+			<th></th>
+			<th>标题</th>
+			<th>作者</th>
+			<th>分类</th>
+			<th>日期</th>
+		</tr>
+		<tr>
+			<td><input name="a[]" type="checkbox" value="" /></td>
+			<td><div class='comment-num'><a href="#">12</a></div></td>
+			<td><a href="#">这是一个测试文章，请自行删除</a></td>
+			<td><a href="#">admin</a></td>
+			<td><a href="#">测试分类一</a></td>
+			<td>2015-10-1</td>
+		</tr>
+		<tr>
+			<td><input name="a[]" type="checkbox" value="" /></td>
+			<td><div class='comment-num'><a href="#">12</a></div></td>
+			<td><a href="#">这是一个测试文章，请自行删除</a></td>
+			<td><a href="#">admin</a></td>
+			<td><a href="#">测试分类一</a></td>
+			<td>2015-10-1</td>
+		</tr>
+		<tr>
+			<td><input name="a[]" type="checkbox" value="" /></td>
+			<td><div class='comment-num'><a href="#">12</a></div></td>
+			<td><a href="#">这是一个测试文章，请自行删除</a></td>
+			<td><a href="#">admin</a></td>
+			<td><a href="#">测试分类一</a></td>
+			<td>2015-10-1</td>
+		</tr>
+		<tr>
+			<td><input name="a[]" type="checkbox" value="" /></td>
+			<td><div class='comment-num'><a href="#">12</a></div></td>
+			<td><a href="#">这是一个测试文章，请自行删除</a></td>
+			<td><a href="#">admin</a></td>
+			<td><a href="#">测试分类一</a></td>
+			<td>2015-10-1</td>
+		</tr>
+		<tr>
+			<td><input name="a[]" type="checkbox" value="" /></td>
+			<td><div class='comment-num'><a href="#">12</a></div></td>
+			<td><a href="#">这是一个测试文章，请自行删除</a></td>
+			<td><a href="#">admin</a></td>
+			<td><a href="#">测试分类一</a></td>
+			<td>2015-10-1</td>
+		</tr>
+		<tr>
+			<td><input name="a[]" type="checkbox" value="" /></td>
+			<td><div class='comment-num'><a href="#">12</a></div></td>
+			<td><a href="#">这是一个测试文章，请自行删除</a></td>
+			<td><a href="#">admin</a></td>
+			<td><a href="#">测试分类一</a></td>
+			<td>2015-10-1</td>
+		</tr>
+	</table>
+</div>
+
+<{include file="footer.html"}>
+<script type="text/javascript">
+
+	window.onload=function()
+	{
+		var arr =document.getElementsByTagName('input');
+		var b = document.getElementById("btu");
+		var iSelect=true;
+		b.onclick=function()
+		{
+			if(iSelect==true)
+			{
+				for(var i=0;i<arr.length;i++)
+				{
+					arr[i].checked=true;
+				}
+				iSelect=false;
+				b.value='反选';
+			}
+			else if(iSelect==false)
+			{
+				for(var i=0;i<arr.length;i++)
+				{
+					arr[i].checked=false;
+				}
+				iSelect=true;
+				b.value='全选';
+			}
+
+		}
+	}
+</script>

@@ -2,6 +2,8 @@
 /**
  * 分类控制器
  */
+if( !defined('APP_NAME')) { exit('Error!'); }
+
 require_once ROOT_PATH.'include/common/Controller.class.php';
 
 class SortController extends Controller {

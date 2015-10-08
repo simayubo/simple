@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="content" content="text/html;charset=utf-8" />
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+	<link rel="stylesheet" href="/admin/template/css.css" />
+	<title><{$title}></title>
+</head>
+<body>
+<div id="nav">
+	<ul>
+		<li <{if $menu eq "main"}>class='parent'<{/if}>><a href="/admin.php">管理首页</a></li>
+		<li <{if $menu eq "write"}>class='parent'<{/if}>><a href="/admin.php?c=Article&a=add">写文章</a></li>
+		<li <{if $menu eq "content"}>class='parent'<{/if}>><a href="/admin.php?c=Article&a=post">内容</a>
+			<ul>
+				<li><a href="/admin.php?c=Article&a=post">文章</a></li>
+				<li><a href="#">评论</a></li>
+				<li><a href="#">分类</a></li>
+			</ul>
+		</li>
+		<li <{if $menu eq "setting"}>class='parent'<{/if}>><a href="#">设置</a>
+			<ul>
+				<li><a href="#">基本设置</a></li>
+				<li><a href="#">模板</a></li>
+				<li><a href="#">插件</a></li>
+				<li><a href="#">SEO优化</a></li>
+				<li><a href="#">导航栏</a></li>
+			</ul>
+		</li>
+		<li style="float: right; border-left: 1px solid #383D45;"><a href="admin.php?c=Index&a=outLogin">退出</a></li>
+		<div class='clean'></div>
+	</ul>
+</div>
+<div id="main">

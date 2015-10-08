@@ -10,6 +10,8 @@
 * @author: BO
 * @version: 0.1
 */
+if( !defined('APP_NAME')) { exit('Error!'); }
+
 require_once ROOT_PATH.'include/common/Controller.class.php';
 
 class CommentController extends Controller {

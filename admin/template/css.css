@@ -1,0 +1,276 @@
+body, ul, li, h1, h2, h3, h4 {
+	padding: 0;
+	margin: 0;
+}
+a{
+	text-decoration: none;
+	color: #467B96;
+}
+body {
+	background: #f6f6f3;
+	font-size: 0.9em;
+}
+/* 导航栏 */
+#nav {
+	background: #292D33;
+	min-height: 39px;
+}
+#nav ul {
+	list-style-type: none;
+	line-height: 39px;
+	margin-left: 15px;
+	border-left: 1px solid #383D45;
+}
+#nav ul li {
+	position:relative; 
+	float: left;
+	width: 80px; 
+	text-align: center;
+	border-right: 1px solid #383D45;
+}
+#nav ul li a{
+	display: block;
+	color: #bbb;
+}
+#nav ul li ul {
+	padding: 0;
+	margin: 0;
+	display: none;
+	position:absolute; 
+	left:0; 
+	top:39px;
+	width: 80px;
+	background: #202328;
+}
+#nav ul li ul li {
+	border: 0;
+}
+#nav ul li ul li a:hover {
+	background: #383D45;
+}
+#nav ul li:hover ul {
+	display: block;
+}
+#nav ul li a:hover {
+	color: #fff;
+	background: #202328;
+}
+#nav ul .parent a {
+	color: #fff;
+	font-weight: 700;
+	background: #202328;
+}
+/* 后台首页 */
+#main {
+	margin: 0 auto;
+	height: 500px;
+}
+#main .block {
+	margin-bottom: 45px;
+}
+#main .title-nav {
+	font-weight: 900;
+	font-size: 1.3em;
+	color: #444;
+	padding: 30px 0;
+}
+#main .block p {
+	color: #999;
+	font-size: 1.2em;
+	line-height: 30px;
+} 
+#main .block p span {
+	font-weight: 900;
+	font-size: 1.5em;
+	color: #444;
+}
+#main .block p b{
+	font-weight: 200;
+}
+#main .block ul {
+	color: #999;
+	font-size: 1.2em;
+	line-height: 1.5em;
+	padding-left: 5%;
+}
+#main .page-main-block {
+	width: 32%;
+	min-width: 260px;
+	float: left;
+}
+#main .page-main-block h2 {
+	font-weight: 900;
+	font-size: 1.1em;
+	color: #444;
+	padding: 20px 0;
+}
+#main .page-main-block ul {
+	list-style-type: none;
+	line-height: 27px;
+	color: #444;
+}
+
+/* 布局相应 */
+@media (max-width:579px){ /* 小于等于 579px */
+	#main { width:90%;}
+	.post-left {
+		width: 100%;
+		float: left;
+		margin-bottom: 20px;
+	}
+	.post-left .content {
+		width: 97%;
+	}
+	.post-left .title {
+		width: 99%;
+	}
+	.post-right {
+		width: 100%;
+		float: left;
+	}
+}
+@media (min-width:580px){ /* 大于等于 580px */
+	#main { width:90%; }
+	.post-left {
+		width: 75%;
+		float: left;
+		margin-bottom: 20px;
+	}
+	.post-left .content {
+		width: 95%;
+	}
+	.post-left .title {
+		width: 96%;
+	}
+	.post-right {
+		width: 25%;
+		float: left;
+	}
+
+}
+@media (min-width: 992px) { /* 大于等于 992px */
+	#main { width:85%; }
+	.post-left .content {
+		width: 95.5%;
+	}
+}
+
+
+/* 发表文章 */
+.post-left .title {
+	height: 30px;
+	border-radius: 3px;
+	border: 1px solid #D9D9D6;
+	margin-bottom: 20px;
+}
+.post-left .content {
+	min-height: 400px;
+	margin-top: 30px;
+	border-radius: 3px;
+	border: 1px solid #D9D9D6;
+}
+/* tab切换 */
+.Menubox{
+	width: 100%;
+	border: 1px solid #D9D9D6;
+	background: #f6f6f3;
+	border-radius: 3px;
+} 
+.Menubox ul{
+	list-style-type: none;
+} 
+.Menubox ul li a{
+	float: left;
+	color: #444;
+	font-size: 0.9em;
+	height: 23px;
+	line-height: 23px;
+	width: 50%;
+	text-align: center;
+} 
+.Menubox ul li .menu{
+	background: #E9E9E6;
+} 
+.post-right .intor {
+	font-weight: 900;
+	font-size: 1em;
+	color: #444;
+	margin: 15px 0;
+}
+.post-right .date, .tags {
+	width: 97%;
+	height: 28px;
+	border-radius: 3px;
+	border: 1px solid #D9D9D6;
+	color: #777;
+	padding-left: 10px;
+}
+.post-right .sort {
+	width: 97%;
+	background: #fff;
+	min-height: 30px;
+	line-height: 23px;
+	border: 1px solid #D9D9D6;
+	border-radius: 3px;
+	padding: 8px 5px;
+}
+.post-right .sub{
+	margin-top: 30px;
+	width: 100%;
+}
+.post-right .sub button {
+	height: 30px;
+	width: 45%;
+	border-radius: 3px;
+	border: 1px solid #D9D9D6;
+}
+.post-right .sub .save {
+	background: #EAEAEA;
+}
+.post-right .sub .post {
+	background: #467B96;
+	color: #FFF;
+	float: right;
+}
+.article-list {
+	background: #FFF;
+	padding: 30px;
+	border-radius: 3px;
+}
+.article-list table{
+	width: 100%;
+}
+.article-list table tr{
+	height: 40px;
+	line-height: 40px;
+}
+.article-list table tr:hover {
+	background: #F6F6F3;
+}
+.article-list table tr th{
+	text-align: left;
+	border-bottom: 1px solid #EAEAEA;
+}
+.article-list table tr td{
+	border-top: 1px solid #EAEAEA;
+}
+.article-list table tr td .comment-num a {
+	padding:3px 5px;
+	border-radius: 45%;
+	background: #EAEAEA;
+	font-size: 0.9em;
+	text-align: center;
+	font-weight: 700;
+}
+
+/* 底部 */
+#footer {
+	color: #999;
+	font-size: 1.1em;
+	line-height: 30px;
+	margin-top: 50px;
+	text-align: center;
+}
+.clean {
+	clear: both;
+}

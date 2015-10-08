@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-09-10 08:24:07
+<?php /* Smarty version 3.1.27, created on 2015-10-08 19:02:24
          compiled from "E:\wwwroot\wwwroot\demo\templates\default\article.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:646055f1220764c961_74569291%%*/
+/*%%SmartyHeaderCode:1116956164d4028d7b0_33043242%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c6708c6d4e111cb242087df598440f0736ad2a1e' => 
     array (
       0 => 'E:\\wwwroot\\wwwroot\\demo\\templates\\default\\article.tpl',
-      1 => 1441852039,
+      1 => 1444302107,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '646055f1220764c961_74569291',
+  'nocache_hash' => '1116956164d4028d7b0_33043242',
   'variables' => 
   array (
     'article' => 0,
@@ -24,13 +24,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_55f12207743af0_75869345',
+  'unifunc' => 'content_56164d40378533_68054082',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_55f12207743af0_75869345')) {
-function content_55f12207743af0_75869345 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56164d40378533_68054082')) {
+function content_56164d40378533_68054082 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '646055f1220764c961_74569291';
+$_smarty_tpl->properties['nocache_hash'] = '1116956164d4028d7b0_33043242';
 echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -48,7 +48,7 @@ echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smart
 </a> | <a href="#comment">评论<?php echo $_smarty_tpl->tpl_vars['article']->value['comnum'];?>
 次</a><!--  | <a href="#">阅读<?php echo $_smarty_tpl->tpl_vars['article']->value['views'];?>
 次</a> --></span>
-			<p><?php echo $_smarty_tpl->tpl_vars['article']->value['content'];?>
+			<p><?php echo htmlspecialchars_decode($_smarty_tpl->tpl_vars['article']->value['content']);?>
 </p>
 		
 	</div>
@@ -56,14 +56,14 @@ echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smart
 		<span class='left'><?php if ($_smarty_tpl->tpl_vars['adjacent']->value['last'] != null) {?>
 			<a href="/Article/show/id/<?php echo $_smarty_tpl->tpl_vars['adjacent']->value['last']['aid'];?>
 " title="上篇文章 <?php echo $_smarty_tpl->tpl_vars['adjacent']->value['last']['title'];?>
-"><<<?php echo $_smarty_tpl->tpl_vars['adjacent']->value['last']['title'];?>
+">上一篇：<?php echo $_smarty_tpl->tpl_vars['adjacent']->value['last']['title'];?>
 </a><?php }?>
 		</span>
 		<span class='right'><?php if ($_smarty_tpl->tpl_vars['adjacent']->value['next'] != null) {?>
 			<a href="/Article/show/id/<?php echo $_smarty_tpl->tpl_vars['adjacent']->value['next']['aid'];?>
 " title="下篇文章 <?php echo $_smarty_tpl->tpl_vars['adjacent']->value['next']['title'];?>
-"><?php echo $_smarty_tpl->tpl_vars['adjacent']->value['next']['title'];?>
->></a><?php }?>
+">下一篇：<?php echo $_smarty_tpl->tpl_vars['adjacent']->value['next']['title'];?>
+</a><?php }?>
 		</span>
 		<div class="clean"></div>
 	</div>

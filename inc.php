@@ -14,6 +14,8 @@ if (!defined('APP_NAME')) {exit('Error!');}
 
 DEBUG == TRUE?'':error_reporting(0); //判断是否debug模式
 
+ini_set('date.timezone','Asia/Shanghai'); //设置时区
+
 require_once ROOT_PATH.'include/common/function.php';
 
 if (APP_NAME == 'Home') { //如果是前台

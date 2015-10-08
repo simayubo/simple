@@ -1,5 +1,7 @@
 <?php
 
+if( !defined('APP_NAME')) { exit('Error!'); }
+
 require_once ROOT_PATH.'include/common/Model.class.php';
 
 class SortModel extends Model {
