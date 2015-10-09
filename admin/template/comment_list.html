@@ -1,31 +1,37 @@
 <{include file="header.html"}>
-<div class='title-nav'>文章列表 - <a href="/admin.php?c=Article&a=post" style='padding: 5px;background: #eaeaea;font-size: 0.8em;' title='查看所有文章'>全部</a></div>
+<div class='title-nav'>评论列表</div>
 <form action='' method='post'>
 <div class='article-list'>
 	<table cellspacing="0" cellpadding="0">
 		<tr>
 			<th><input type="checkbox" id="btu" value="全选" /></th>
-			<th></th>
-			<th>标题</th>
 			<th>作者</th>
-			<th>分类</th>
-			<th>日期</th>
+			<th>内容</th>
+			<th>时间</th>
+			<th>邮箱</th>
+			<th>网址</th>
+			<th>IP地址</th>
+			<th>审核</th>
 		</tr>
-		<{foreach from=$article item=value}>
+		<{foreach from=$comment item=value}>
 			<tr>
 				<td><input name="a[]" type="checkbox" value="" /></td>
-				<td><div class='comment-num'><a href="/admin.php?c=Comment&a=list&aid=<{$value.aid}>" title='点击查看此文章的所有评论'><{$value.comnum}></a></div></td>
-				<td>
-					<{if $value.top eq y}><span class='top'>置顶</span><{/if}>
-					<{if $value.hide eq y}><span class='draft'>草稿</span><{/if}>
-					<a href="/admin.php?c=Article&a=edit&aid=<{$value.aid}>" title='点击编辑此文章'><{$value.title}></a>
-				</td>
-				<td><a href="/admin.php?c=Article&a=post&userid=<{$value.userid}>" title='查看该用户所有文章'><{$value.uid}></a></td>
-				<td><a href="/admin.php?c=Article&a=post&sortid=<{$value.sortid}>" title='查看该分类下所有文章'><{$value.sortname}></a></td>
+				<td><a href="/Article/show/id/<{$value.aid}>#comment-<{$value.cid}>" title='点击查看此用户所有评论' target='_blank'><{$value.poster}></a></td>
+				<td><a href="/Article/show/id/<{$value.aid}>#comment-<{$value.cid}>" title='点击查看该评论在前台位置' target='_blank'><{$value.content|mb_substr:0:25:'utf-8'}>..</a></td>
 				<td><{$value.date}></td>
+				<td><{$value.email}></td>
+				<td><a href="<{$value.url}>" title='点击查看该网址' target='_blank'><{$value.url}></a></td>
+				<td><{$value.ip}></td>
+				<td>
+					<{if $value.hide eq n}>
+						<a href="/admin.php?c=Comment&a=setHide&cid=<{$value.cid}>&hide=y" title='点击取消审核' style='color:green;font-size: 0.8em;padding: 5px; background: #EAEAEA;'>正常</a>
+					<{else}>
+						<a href="/admin.php?c=Comment&a=setHide&cid=<{$value.cid}>&hide=n" title='点击审核此评论' style='color:#c7254e;font-size: 0.8em;padding: 5px; background: #f9f2f4;'>未审核</a>
+					<{/if}>
+				</td>
 			</tr>
 		<{foreachelse}>
-			暂无数据
+			<tr><td>暂无数据</td></tr>
 		<{/foreach}>
 	</table>
 </div>
@@ -34,6 +40,8 @@
 		<select name='type'  class='sel'>
 			<option value='-1' selected = "selected">选项</option>
 			<option value='delete'>删除</option>
+			<option value='unhide'>审核</option>
+			<option value='hide'>取消审核</option>
 		</select>
 		<input type='submit' value='提交' class='sub' />
 	</div>

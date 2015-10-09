@@ -253,6 +253,7 @@ body {
 }
 .article-list table tr td{
 	border-top: 1px solid #EAEAEA;
+	color: #555;
 }
 .article-list table tr td .comment-num a {
 	padding:3px 5px;
@@ -262,6 +263,69 @@ body {
 	text-align: center;
 	font-weight: 700;
 }
+.article-list table tr td span {
+	font-size: 0.8em;
+	padding: 4px;
+	border-radius: 2px;
+}
+.article-list table tr td .draft {
+	background: #F9F2F4;
+	color:red;
+}
+.article-list table tr td .top {
+	background: #e6e6e6;
+	color: #099;
+}
+.page {
+	margin-top: 20px; 
+}
+.page .page-left{
+	float: left;
+}
+.page .page-left .sel{
+	height: 30px;
+	min-width: 70px;
+	border-radius: 3px;
+	border: 1px solid #D9D9D6;
+	background: #FFF;
+	color: #444;
+}
+.page .page-left .sub{
+	height: 30px;
+	width: 60px;
+	border-radius: 3px;
+	border: 1px solid #D9D9D6;
+	background: #EAEAEA;
+	color: #444;
+}
+.page .page-right{
+	float: right;
+	width: 70%;
+}
+.page .page-right ul{
+	list-style-type: none;
+	float: right;
+	border-radius: 5px;
+}
+.page .page-right ul li{
+	float: left;
+	border-right: 1px solid #FFF;
+}
+.page .page-right ul li a {
+	display: block;
+	width: 30px;
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	background: #eaeaea;
+	color: #666;
+	margin-left: 1px;
+}
+.page .page-right ul li .menu{
+	background: #337ab7;
+	color: #FFF;
+}
+
 
 /* 底部 */
 #footer {

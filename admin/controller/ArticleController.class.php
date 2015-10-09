@@ -6,12 +6,15 @@ require_once ROOT_PATH.'include/common/Controller.class.php';
 
 class ArticleController extends Controller {
 
+	/**
+	 * 撰写文章
+	 */
 	public function add(){
 		
 		if (!empty($_POST)) {
 
 			$data = array();
-			if ($_POST['do'] == 'post') { //直接发表
+			if ($_POST['do'] == 'post') { 
 				
 				empty($_POST['title']) ? errMsg('标题不能为空！'):'';
 				empty($_POST['content']) ? errMsg('文章内容不能为空！'):'';
@@ -49,7 +52,20 @@ class ArticleController extends Controller {
 	 */
 	public function post() {
 
+		$article = null;
+		if (!empty($_GET['sortid'])) {
+			
+			$article = $this ->D('Article') ->getArticleList(0, 10, array('sp_articles.sortid', $_GET['sortid']));
+		}elseif (!empty($_GET['userid'])) {
+			
+			$article = $this ->D('Article') ->getArticleList(0, 10, array('sp_articles.userid', $_GET['userid']));
+		}else{
+
+			$article = $this ->D('Article') ->getArticleList(0, 10);
+		}
+
 		$this ->assign('title', '文章列表 - Simple后台管理');
+		$this ->assign('article', $article);
 		$this ->assign('menu', 'content');
 		$this ->display('article_list.html');
 	}

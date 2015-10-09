@@ -7,6 +7,40 @@ require_once ROOT_PATH.'include/common/Model.class.php';
 class ArticleModel extends Model{
 	
 	/**
+	 * 获取文章列表
+	 * @param  int $sta 从哪开始
+	 * @param  int $num 取几条
+	 * @param  array $where 如果有条件，则以数组传入条件
+	 */
+	public function getArticleList($sta, $num, $where = null) {
+
+		$sql = '';
+		$data = array();
+		if (empty($where)) { //如果为空
+
+			$sql = "SELECT 	sp_articles.aid,sp_articles.title, 	sp_articles.date, sp_articles.userid,	sp_articles.sortid,sp_articles.comnum,sp_articles.top,sp_articles.hide,sp_sort.sortname,sp_user.uid
+			FROM	
+				sp_articles 
+				LEFT JOIN sp_sort ON sp_articles.sortid = sp_sort.sortid 
+				LEFT JOIN sp_user ON sp_articles.userid = sp_user.id 
+			ORDER BY sp_articles.top DESC, sp_articles.aid DESC 
+			LIMIT ?,? ";
+			
+		}else { //如果不为空
+
+			$sql = "SELECT 	sp_articles.aid,sp_articles.title, 	sp_articles.date, sp_articles.userid,	sp_articles.sortid,sp_articles.comnum,sp_articles.top,sp_articles.hide,sp_sort.sortname,sp_user.uid
+			FROM	
+				sp_articles 
+				LEFT JOIN sp_sort ON sp_articles.sortid = sp_sort.sortid 
+				LEFT JOIN sp_user ON sp_articles.userid = sp_user.id 
+			WHERE ".$where[0]."= ".$where[1]."
+			ORDER BY sp_articles.top DESC, sp_articles.aid DESC 
+			LIMIT ?,? ";
+		}
+		$data = array($sta, $num);
+		return $this ->db_dql($sql, $data);
+	}
+	/**
 	 * 添加文章
 	 * @param array $date 传入数据数组
 	 */

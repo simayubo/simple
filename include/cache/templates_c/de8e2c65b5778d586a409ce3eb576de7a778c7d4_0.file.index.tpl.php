@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-08 19:02:22
+<?php /* Smarty version 3.1.27, created on 2015-10-09 10:24:25
          compiled from "E:\wwwroot\wwwroot\demo\templates\default\index.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:1024856164d3edfe073_86791584%%*/
+/*%%SmartyHeaderCode:2140656172559967922_25311163%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'de8e2c65b5778d586a409ce3eb576de7a778c7d4' => 
     array (
       0 => 'E:\\wwwroot\\wwwroot\\demo\\templates\\default\\index.tpl',
-      1 => 1444302098,
+      1 => 1444357453,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1024856164d3edfe073_86791584',
+  'nocache_hash' => '2140656172559967922_25311163',
   'variables' => 
   array (
     'article' => 0,
@@ -21,13 +21,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_56164d3eeb4f40_94908722',
+  'unifunc' => 'content_56172559a1ec91_12133947',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56164d3eeb4f40_94908722')) {
-function content_56164d3eeb4f40_94908722 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56172559a1ec91_12133947')) {
+function content_56172559a1ec91_12133947 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '1024856164d3edfe073_86791584';
+$_smarty_tpl->properties['nocache_hash'] = '2140656172559967922_25311163';
 echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -46,7 +46,9 @@ $foreach_value_Sav = $_smarty_tpl->tpl_vars['value'];
 		<div class="article-list">
 			<h1><a href="/Article/show/id/<?php echo $_smarty_tpl->tpl_vars['value']->value['aid'];?>
 " title="<?php echo $_smarty_tpl->tpl_vars['value']->value['title'];?>
-"><?php echo $_smarty_tpl->tpl_vars['value']->value['title'];?>
+">
+				<?php if ($_smarty_tpl->tpl_vars['value']->value['top'] == 'y') {?><b class='top'>置顶</b><?php }?>
+				<?php echo $_smarty_tpl->tpl_vars['value']->value['title'];?>
 </a></h1>
 			<span><a href="/Sort/show/id/<?php echo $_smarty_tpl->tpl_vars['value']->value['sortid'];?>
 " title="查看所有 <?php echo $_smarty_tpl->tpl_vars['value']->value['sortname'];?>

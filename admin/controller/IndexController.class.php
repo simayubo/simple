@@ -22,7 +22,6 @@ class IndexController extends Controller {
 			
 			sucMsg('/');
 		}else {
-
 			errMsg("退出失败！");
 		}
 	}

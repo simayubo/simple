@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-08 17:04:52
+<?php /* Smarty version 3.1.27, created on 2015-10-09 14:56:29
          compiled from "E:\wwwroot\wwwroot\demo\admin\template\article_add.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:14439561631b4e29b62_49189826%%*/
+/*%%SmartyHeaderCode:288555617651da8fbc9_10201871%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '300e226b859e259610af6f7c1d5cd33373278a77' => 
     array (
       0 => 'E:\\wwwroot\\wwwroot\\demo\\admin\\template\\article_add.html',
-      1 => 1444295083,
+      1 => 1444373786,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '14439561631b4e29b62_49189826',
+  'nocache_hash' => '288555617651da8fbc9_10201871',
   'variables' => 
   array (
     'time' => 0,
@@ -22,13 +22,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_561631b4e9cda4_13547164',
+  'unifunc' => 'content_5617651db059c6_80817564',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_561631b4e9cda4_13547164')) {
-function content_561631b4e9cda4_13547164 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5617651db059c6_80817564')) {
+function content_5617651db059c6_80817564 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '14439561631b4e29b62_49189826';
+$_smarty_tpl->properties['nocache_hash'] = '288555617651da8fbc9_10201871';
 echo $_smarty_tpl->getSubTemplate ("header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -81,9 +81,9 @@ if (!$_smarty_tpl->tpl_vars['value']->_loop) {
 			<div class='intor'>标签</div>
 			<input type='text' class='tags' />
 			<div class='intor'>权限管理</div>
-			<label><input name="allow_remark" type="checkbox" value="1" checked='checked' />允许评论 </label> 
-			<label><input name="top" type="checkbox" value="1" />置顶 </label> 
-			<label><input name="link" type="checkbox" value="1" />允许被引用 </label> 
+			<label><input name="allow_remark" type="checkbox" value="y" checked='checked' />允许评论 </label> 
+			<label><input name="top" type="checkbox" value="y" />置顶 </label> 
+			<label><input name="link" type="checkbox" value="y" />允许被引用 </label> 
 		</div> 
 		<div id="con_menu_2" style="display:none"> 
 			<div class='intor'>上传附件</div>

@@ -38,7 +38,7 @@ class ArticleModel extends Model {
 			FROM	
 				sp_articles LEFT JOIN sp_sort ON sp_articles.sortid = sp_sort.sortid 
 			WHERE sp_articles.hide = 'n' 
-			ORDER BY sp_articles.aid DESC 
+			ORDER BY  sp_articles.top DESC, sp_articles.aid DESC 
 			LIMIT ?,?
 		";
 		return $this ->db_dql($sql, array($sta, $num));

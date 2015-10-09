@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-09-12 06:17:32
+<?php /* Smarty version 3.1.27, created on 2015-10-09 10:28:13
          compiled from "E:\wwwroot\wwwroot\demo\templates\default\sort.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:3037455f3a75cb29403_44460009%%*/
+/*%%SmartyHeaderCode:282875617263daa93c0_67801579%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3deef8be2eb9a97cf875dd2dc2f12f98e67cf881' => 
     array (
       0 => 'E:\\wwwroot\\wwwroot\\demo\\templates\\default\\sort.tpl',
-      1 => 1442030376,
+      1 => 1444357689,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3037455f3a75cb29403_44460009',
+  'nocache_hash' => '282875617263daa93c0_67801579',
   'variables' => 
   array (
     'article' => 0,
@@ -21,13 +21,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_55f3a75cbf5e12_08155627',
+  'unifunc' => 'content_5617263db41022_41636114',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_55f3a75cbf5e12_08155627')) {
-function content_55f3a75cbf5e12_08155627 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5617263db41022_41636114')) {
+function content_5617263db41022_41636114 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '3037455f3a75cb29403_44460009';
+$_smarty_tpl->properties['nocache_hash'] = '282875617263daa93c0_67801579';
 echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -57,7 +57,7 @@ $foreach_value_Sav = $_smarty_tpl->tpl_vars['value'];
  的评论">评论<?php echo $_smarty_tpl->tpl_vars['value']->value['comnum'];?>
 次</a><!-- | <a>阅读<?php echo $_smarty_tpl->tpl_vars['value']->value['views'];?>
 次</a>--></span>
-			<p><?php echo $_smarty_tpl->tpl_vars['value']->value['content'];?>
+			<p><?php echo htmlspecialchars_decode($_smarty_tpl->tpl_vars['value']->value['content']);?>
 </p>
 			<span style="margin:10px 0 0 0;"><a href="/Article/show/id/<?php echo $_smarty_tpl->tpl_vars['value']->value['aid'];?>
 ">[阅读全文-></a></span>

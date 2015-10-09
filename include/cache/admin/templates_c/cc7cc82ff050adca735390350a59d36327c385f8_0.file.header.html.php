@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-08 05:40:31
+<?php /* Smarty version 3.1.27, created on 2015-10-09 14:11:54
          compiled from "E:\wwwroot\wwwroot\demo\admin\template\header.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:226335615e5af6baa78_72818739%%*/
+/*%%SmartyHeaderCode:1221456175aaa6335b3_80479712%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cc7cc82ff050adca735390350a59d36327c385f8' => 
     array (
       0 => 'E:\\wwwroot\\wwwroot\\demo\\admin\\template\\header.html',
-      1 => 1444275627,
+      1 => 1444370507,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '226335615e5af6baa78_72818739',
+  'nocache_hash' => '1221456175aaa6335b3_80479712',
   'variables' => 
   array (
     'title' => 0,
@@ -21,13 +21,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5615e5af71f0d6_10648323',
+  'unifunc' => 'content_56175aaa676251_14311950',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5615e5af71f0d6_10648323')) {
-function content_5615e5af71f0d6_10648323 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56175aaa676251_14311950')) {
+function content_56175aaa676251_14311950 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '226335615e5af6baa78_72818739';
+$_smarty_tpl->properties['nocache_hash'] = '1221456175aaa6335b3_80479712';
 ?>
 <!DOCTYPE html>
 <head>
@@ -47,7 +47,7 @@ $_smarty_tpl->properties['nocache_hash'] = '226335615e5af6baa78_72818739';
 		<li <?php if ($_smarty_tpl->tpl_vars['menu']->value == "content") {?>class='parent'<?php }?>><a href="/admin.php?c=Article&a=post">内容</a>
 			<ul>
 				<li><a href="/admin.php?c=Article&a=post">文章</a></li>
-				<li><a href="#">评论</a></li>
+				<li><a href="/admin.php?c=Comment&a=show">评论</a></li>
 				<li><a href="#">分类</a></li>
 			</ul>
 		</li>
