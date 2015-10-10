@@ -10,11 +10,12 @@
 			<th>作者</th>
 			<th>分类</th>
 			<th>日期</th>
+			<th>允许评论</th>
 		</tr>
 		<{foreach from=$article item=value}>
 			<tr>
 				<td><input name="a[]" type="checkbox" value="" /></td>
-				<td><div class='comment-num'><a href="/admin.php?c=Comment&a=list&aid=<{$value.aid}>" title='点击查看此文章的所有评论'><{$value.comnum}></a></div></td>
+				<td><div class='comment-num'><a href="/admin.php?c=Comment&a=show&aid=<{$value.aid}>" title='点击查看此文章的所有评论'><{$value.comnum}></a></div></td>
 				<td>
 					<{if $value.top eq y}><span class='top'>置顶</span><{/if}>
 					<{if $value.hide eq y}><span class='draft'>草稿</span><{/if}>
@@ -23,6 +24,7 @@
 				<td><a href="/admin.php?c=Article&a=post&userid=<{$value.userid}>" title='查看该用户所有文章'><{$value.uid}></a></td>
 				<td><a href="/admin.php?c=Article&a=post&sortid=<{$value.sortid}>" title='查看该分类下所有文章'><{$value.sortname}></a></td>
 				<td><{$value.date}></td>
+				<td><{if $value.allow_remark eq n}><span style='color:#c7254e;font-size: 0.8em;padding: 5px; background: #f9f2f4;'>禁止</span><{else}><span style='color:green;font-size: 0.8em;padding: 5px; background: #EAEAEA;'>允许</span><{/if}></td>
 			</tr>
 		<{foreachelse}>
 			暂无数据

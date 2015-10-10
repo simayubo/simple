@@ -1,0 +1,74 @@
+<{include file="header.html"}>
+<div class='title-nav'>文章编辑</div>
+<div class='post-left'>
+	<form action='' method='post'>
+	<input type='text' name='title' value="<{$article.title}>" class='title' />
+	<textarea name='content' class='content'><{$article.content}></textarea>
+	<div class='clean'></div>
+</div>
+<div class='post-right'>
+	<div class="Menubox"> 
+		<ul> 
+			<li><a href="#" id="menu1" onclick="setTab('menu',1,2)" class="menu">选项</a></li> 
+			<li><a href="#" id="menu2" onclick="setTab('menu',2,2)">附件</a></li> 
+		</ul> 
+		<div class='clean'></div>
+	</div> 
+	<div class="Contentbox"> 
+		<div id="con_menu_1" class="memu"> 
+			<div class='intor'>发布时间</div>
+			<input type='text' name='date' value="<{$article.date}>" class='date' />
+			<div class='intor'>分类</div>
+			<div class='sort'>
+				<{foreach from=$sort item =value }>
+					<label><input name="sortid" type="radio" value="<{$value.sortid}>" <{if $article.sortid eq $value.sortid}>checked = "checked"<{/if}>/><{$value.sortname}> </label> <br/>
+				<{foreachelse}>
+					<label>暂无分类</label>
+				<{/foreach}>
+			</div>
+			<div class='intor'>标签</div>
+			<input type='text' class='tags' />
+			<div class='intor'>权限管理</div>
+			<label><input name="allow_remark" type="checkbox" value="y" <{if $article.allow_remark eq y}>checked = "checked"<{/if}> />允许评论 </label> 
+			<label><input name="top" type="checkbox" value="y" <{if $article.top eq y}>checked = "checked"<{/if}> />置顶 </label> 
+			<label><input name="link" type="checkbox" value="y" />允许被引用 </label> 
+		</div> 
+		<div id="con_menu_2" style="display:none"> 
+			<div class='intor'>上传附件</div>
+			<div class='sort'>
+				上传文件请 <a href="#">点击这里</a>
+			</div> 
+		</div> 
+		<input type='hidden' name='aid' value="<{$article.aid}>" />
+		<div class='sub'>
+			<button type='submit' name='do' value='save' class='save'>保存草稿</button>
+			<button type='submit' name='do' value='post' class='post'>发表文章</button>
+		</div>
+	</div> 
+	</form>
+</div>
+<{include file="footer.html"}>
+<script charset="utf-8" src="/include/lib/kindeditor/kindeditor-min.js"></script>
+<script>
+	var editor;
+	KindEditor.ready(function(K) {
+		editor = K.create('textarea[name="content"]', {
+			resizeType : 1,
+			themeType : 'simple',
+			allowPreviewEmoticons : true,
+			items : [
+				'fontname','fontsize','forecolor','hilitecolor','bold', 'italic', 'underline','insertorderedlist','insertunorderedlist','justifyleft','justifycenter','justifyright','quickformat','lineheight','hr','|','plainpaste','link','unlink','code', 'emoticons','|','source','fullscreen','preview'
+			]
+		});
+	});
+</script>
+<script> 
+	function setTab(name,cursel,n){ 
+		for(i=1;i<=n;i++){ 
+			var menu=document.getElementById(name+i); 
+			var con=document.getElementById("con_"+name+"_"+i); 
+			menu.className=i==cursel?"menu":""; 
+			con.style.display=i==cursel?"block":"none"; 
+		} 
+	} 
+</script> 

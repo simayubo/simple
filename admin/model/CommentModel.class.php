@@ -12,9 +12,13 @@ class CommentModel extends Model{
 	 * @param  int $num 取几条
 	 * @return 评论列表
 	 */
-	public function getCommentList($sta, $num) {
+	public function getCommentList($sta, $num, $data = null) {
 
-		$sql = "SELECT cid, aid, poster, date, content, email, url, hide, ip FROM sp_comment ORDER BY cid DESC LIMIT ?,?";
+		if (empty($data)) {
+			$sql = "SELECT cid, aid, poster, date, content, email, url, hide, ip FROM sp_comment ORDER BY cid DESC LIMIT ?,?";
+		}else {
+			$sql = "SELECT cid, aid, poster, date, content, email, url, hide, ip FROM sp_comment WHERE ".$data[0]."='".$data[1]."' ORDER BY cid DESC LIMIT ?,?";
+		}
 		return $this ->db_dql($sql, array($sta, $num));
 	}
 	/**
@@ -52,5 +56,9 @@ class CommentModel extends Model{
 			}
 		}
 		return $res;
+	}
+	public function del( $array ) {
+
+		$sql = "DELETE FROM sp_comment WHERE ";
 	}
 }

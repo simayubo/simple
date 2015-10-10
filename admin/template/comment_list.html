@@ -16,7 +16,7 @@
 		<{foreach from=$comment item=value}>
 			<tr>
 				<td><input name="a[]" type="checkbox" value="" /></td>
-				<td><a href="/Article/show/id/<{$value.aid}>#comment-<{$value.cid}>" title='点击查看此用户所有评论' target='_blank'><{$value.poster}></a></td>
+				<td><a href="/admin.php?c=Comment&a=show&poster=<{$value.poster}>" title='点击查看此用户所有评论'><{$value.poster}></a></td>
 				<td><a href="/Article/show/id/<{$value.aid}>#comment-<{$value.cid}>" title='点击查看该评论在前台位置' target='_blank'><{$value.content|mb_substr:0:25:'utf-8'}>..</a></td>
 				<td><{$value.date}></td>
 				<td><{$value.email}></td>

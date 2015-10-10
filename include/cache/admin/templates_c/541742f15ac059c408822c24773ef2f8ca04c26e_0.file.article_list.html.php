@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-09 15:08:12
+<?php /* Smarty version 3.1.27, created on 2015-10-10 17:49:02
          compiled from "E:\wwwroot\wwwroot\demo\admin\template\article_list.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:21436561767dc7362c8_37513911%%*/
+/*%%SmartyHeaderCode:197825618df0e8ae050_92388125%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '541742f15ac059c408822c24773ef2f8ca04c26e' => 
     array (
       0 => 'E:\\wwwroot\\wwwroot\\demo\\admin\\template\\article_list.html',
-      1 => 1444374483,
+      1 => 1444470540,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '21436561767dc7362c8_37513911',
+  'nocache_hash' => '197825618df0e8ae050_92388125',
   'variables' => 
   array (
     'article' => 0,
@@ -21,13 +21,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_561767dc7ddfc4_08413977',
+  'unifunc' => 'content_5618df0e955ae3_02077885',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_561767dc7ddfc4_08413977')) {
-function content_561767dc7ddfc4_08413977 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5618df0e955ae3_02077885')) {
+function content_5618df0e955ae3_02077885 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '21436561767dc7362c8_37513911';
+$_smarty_tpl->properties['nocache_hash'] = '197825618df0e8ae050_92388125';
 echo $_smarty_tpl->getSubTemplate ("header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -42,6 +42,7 @@ echo $_smarty_tpl->getSubTemplate ("header.html", $_smarty_tpl->cache_id, $_smar
 			<th>作者</th>
 			<th>分类</th>
 			<th>日期</th>
+			<th>允许评论</th>
 		</tr>
 		<?php
 $_from = $_smarty_tpl->tpl_vars['article']->value;
@@ -56,7 +57,7 @@ $foreach_value_Sav = $_smarty_tpl->tpl_vars['value'];
 ?>
 			<tr>
 				<td><input name="a[]" type="checkbox" value="" /></td>
-				<td><div class='comment-num'><a href="/admin.php?c=Comment&a=list&aid=<?php echo $_smarty_tpl->tpl_vars['value']->value['aid'];?>
+				<td><div class='comment-num'><a href="/admin.php?c=Comment&a=show&aid=<?php echo $_smarty_tpl->tpl_vars['value']->value['aid'];?>
 " title='点击查看此文章的所有评论'><?php echo $_smarty_tpl->tpl_vars['value']->value['comnum'];?>
 </a></div></td>
 				<td>
@@ -74,6 +75,7 @@ $foreach_value_Sav = $_smarty_tpl->tpl_vars['value'];
 </a></td>
 				<td><?php echo $_smarty_tpl->tpl_vars['value']->value['date'];?>
 </td>
+				<td><?php if ($_smarty_tpl->tpl_vars['value']->value['allow_remark'] == 'n') {?><span style='color:#c7254e;font-size: 0.8em;padding: 5px; background: #f9f2f4;'>禁止</span><?php } else { ?><span style='color:green;font-size: 0.8em;padding: 5px; background: #EAEAEA;'>允许</span><?php }?></td>
 			</tr>
 		<?php
 $_smarty_tpl->tpl_vars['value'] = $foreach_value_Sav;

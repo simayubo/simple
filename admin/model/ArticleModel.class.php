@@ -18,7 +18,7 @@ class ArticleModel extends Model{
 		$data = array();
 		if (empty($where)) { //如果为空
 
-			$sql = "SELECT 	sp_articles.aid,sp_articles.title, 	sp_articles.date, sp_articles.userid,	sp_articles.sortid,sp_articles.comnum,sp_articles.top,sp_articles.hide,sp_sort.sortname,sp_user.uid
+			$sql = "SELECT 	sp_articles.aid,sp_articles.title, 	sp_articles.date, sp_articles.allow_remark, sp_articles.userid,	sp_articles.sortid,sp_articles.comnum,sp_articles.top,sp_articles.hide,sp_sort.sortname,sp_user.uid
 			FROM	
 				sp_articles 
 				LEFT JOIN sp_sort ON sp_articles.sortid = sp_sort.sortid 
@@ -28,7 +28,7 @@ class ArticleModel extends Model{
 			
 		}else { //如果不为空
 
-			$sql = "SELECT 	sp_articles.aid,sp_articles.title, 	sp_articles.date, sp_articles.userid,	sp_articles.sortid,sp_articles.comnum,sp_articles.top,sp_articles.hide,sp_sort.sortname,sp_user.uid
+			$sql = "SELECT 	sp_articles.aid,sp_articles.title, 	sp_articles.date, sp_articles.allow_remark, sp_articles.userid,	sp_articles.sortid,sp_articles.comnum,sp_articles.top,sp_articles.hide,sp_sort.sortname,sp_user.uid
 			FROM	
 				sp_articles 
 				LEFT JOIN sp_sort ON sp_articles.sortid = sp_sort.sortid 
@@ -41,6 +41,15 @@ class ArticleModel extends Model{
 		return $this ->db_dql($sql, $data);
 	}
 	/**
+	 * 获取单个文章所有数据
+	 * @param  [type] $aid 文章id
+	 */
+	public function getArticle($aid) {
+
+		$sql = "SELECT * FROM sp_articles WHERE aid = ?";
+		return $this ->db_dql($sql, array($aid), 1);
+	}
+	/**
 	 * 添加文章
 	 * @param array $date 传入数据数组
 	 */
@@ -50,6 +59,7 @@ class ArticleModel extends Model{
 		return $this ->db_dml($sql, $data);
 	}
 
+	//统计数量
 	public function count() {
 		
 		$sql = "SELECT count(`aid`) FROM sp_articles";
@@ -59,7 +69,7 @@ class ArticleModel extends Model{
 	//获取最新文章列表
 	public function getNewArticleList($num) {
 		
-		$sql = "SELECT aid, title FROM sp_articles ORDER BY aid DESC LIMIT 0,?";
+		$sql = "SELECT aid, title FROM sp_articles WHERE hide = 'n' ORDER BY aid DESC LIMIT 0,?";
 		return $this ->db_dql($sql, array($num));
 	}
 }

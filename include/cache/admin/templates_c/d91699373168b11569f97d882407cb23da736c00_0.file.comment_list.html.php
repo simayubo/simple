@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-09 16:57:12
+<?php /* Smarty version 3.1.27, created on 2015-10-10 11:26:29
          compiled from "E:\wwwroot\wwwroot\demo\admin\template\comment_list.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:91965617816820bb99_08675782%%*/
+/*%%SmartyHeaderCode:2999256188565c15135_29146961%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd91699373168b11569f97d882407cb23da736c00' => 
     array (
       0 => 'E:\\wwwroot\\wwwroot\\demo\\admin\\template\\comment_list.html',
-      1 => 1444381029,
+      1 => 1444447563,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '91965617816820bb99_08675782',
+  'nocache_hash' => '2999256188565c15135_29146961',
   'variables' => 
   array (
     'comment' => 0,
@@ -21,13 +21,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_561781682c7564_34875223',
+  'unifunc' => 'content_56188565d004a2_78409784',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_561781682c7564_34875223')) {
-function content_561781682c7564_34875223 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56188565d004a2_78409784')) {
+function content_56188565d004a2_78409784 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '91965617816820bb99_08675782';
+$_smarty_tpl->properties['nocache_hash'] = '2999256188565c15135_29146961';
 echo $_smarty_tpl->getSubTemplate ("header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -58,9 +58,8 @@ $foreach_value_Sav = $_smarty_tpl->tpl_vars['value'];
 ?>
 			<tr>
 				<td><input name="a[]" type="checkbox" value="" /></td>
-				<td><a href="/Article/show/id/<?php echo $_smarty_tpl->tpl_vars['value']->value['aid'];?>
-#comment-<?php echo $_smarty_tpl->tpl_vars['value']->value['cid'];?>
-" title='点击查看此用户所有评论' target='_blank'><?php echo $_smarty_tpl->tpl_vars['value']->value['poster'];?>
+				<td><a href="/admin.php?c=Comment&a=show&poster=<?php echo $_smarty_tpl->tpl_vars['value']->value['poster'];?>
+" title='点击查看此用户所有评论'><?php echo $_smarty_tpl->tpl_vars['value']->value['poster'];?>
 </a></td>
 				<td><a href="/Article/show/id/<?php echo $_smarty_tpl->tpl_vars['value']->value['aid'];?>
 #comment-<?php echo $_smarty_tpl->tpl_vars['value']->value['cid'];?>

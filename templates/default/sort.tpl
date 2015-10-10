@@ -8,7 +8,7 @@
 			<span style="margin:10px 0 0 0;"><a href="/Article/show/id/<{$value.aid}>">[阅读全文-></a></span>
 		</div>
 	<{foreachelse}>
-		<div class="article-list">查无此分类！</div>
+		<div class="article-list">暂无数据！</div>
 	<{/foreach}>
 </div>
 <{include file="sidebar.tpl"}>

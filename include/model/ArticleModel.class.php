@@ -20,21 +20,7 @@ class ArticleModel extends Model {
 	//获取文章详细列表
 	public function getArticleList($sta, $num) {
 		
-		$sql = "SELECT 	
-				sp_articles.aid,
-				sp_articles.title, 
-				sp_articles.date,
-				sp_articles.excerpt, 
-				sp_articles.content, 
-				sp_articles.alias, 
-				sp_articles.sortid,
-				sp_articles.views,
-				sp_articles.comnum,
-				sp_articles.top,
-				sp_articles.sorttop,
-				sp_articles.hide,
-				sp_sort.sortname,
-				sp_sort.sortalias
+		$sql = "SELECT 	sp_articles.aid, sp_articles.title, sp_articles.date, sp_articles.excerpt, sp_articles.content, sp_articles.alias, sp_articles.sortid,sp_articles.views,sp_articles.comnum,sp_articles.top,sp_articles.sorttop,sp_articles.hide,sp_sort.sortname,sp_sort.sortalias
 			FROM	
 				sp_articles LEFT JOIN sp_sort ON sp_articles.sortid = sp_sort.sortid 
 			WHERE sp_articles.hide = 'n' 
@@ -46,23 +32,7 @@ class ArticleModel extends Model {
 	//获取文章阅读页内容
 	public function getArticle($aid) {
 		
-		$sql = "SELECT 	
-				sp_articles.aid,
-				sp_articles.title, 
-				sp_articles.date,
-				sp_articles.excerpt, 
-				sp_articles.content, 
-				sp_articles.alias, 
-				sp_articles.sortid,
-				sp_articles.views,
-				sp_articles.comnum,
-				sp_articles.top,
-				sp_articles.sorttop,
-				sp_articles.hide,
-				sp_articles.allow_remark,
-				sp_articles.password,
-				sp_sort.sortname,
-				sp_sort.sortalias
+		$sql = "SELECT 	sp_articles.aid,sp_articles.title, sp_articles.date,sp_articles.excerpt, sp_articles.content, sp_articles.alias, sp_articles.sortid,sp_articles.views,sp_articles.comnum,sp_articles.top,sp_articles.sorttop,sp_articles.hide,sp_articles.allow_remark,sp_articles.password,sp_sort.sortname,sp_sort.sortalias
 			FROM	
 				sp_articles LEFT JOIN sp_sort ON sp_articles.sortid = sp_sort.sortid 
 			WHERE 
@@ -77,17 +47,15 @@ class ArticleModel extends Model {
 				$res[$_key] = $_value;
 			}
 		}
-		
 		return $res;
 	}
 
 	//获取侧边栏最新文章列表
 	public function getSidebarArticleList($num) {
 		
-		$sql = "SELECT aid, title FROM sp_articles ORDER BY aid DESC LIMIT 0,?";
+		$sql = "SELECT aid, title FROM sp_articles WHERE hide = 'n' ORDER BY aid DESC LIMIT 0,?";
 		return $this ->db_dql($sql, array($num));
 	}
-
 	/**
 	 * 获取文章页相邻文章 
 	 * $aid 当前文章ID
@@ -98,33 +66,24 @@ class ArticleModel extends Model {
 
 		$sql = '';
 		if ($type == 'last') {
-			$sql = "SELECT aid,title FROM sp_articles WHERE aid  < ? ORDER BY aid DESC LIMIT 1";
+			$sql = "SELECT aid,title FROM sp_articles WHERE aid  < ? AND hide = 'n' ORDER BY aid DESC LIMIT 1";
 		}elseif ($type == 'next') {
-			$sql = "SELECT aid,title FROM sp_articles WHERE aid  > ? ORDER BY aid LIMIT 1";
+			$sql = "SELECT aid,title FROM sp_articles WHERE aid  > ? AND hide = 'n' ORDER BY aid LIMIT 1";
 		}
 		return $this ->db_dql($sql, $data, 1);
 	}
-
+	/**
+	 * 获取分类文章列表
+	 * @param  [type] $id  [description]
+	 * @param  [type] $sta [description]
+	 * @param  [type] $num [description]
+	 */
 	public function getSortArticle($id, $sta, $num) { 
 
-		$sql = "SELECT 	
-				sp_articles.aid,
-				sp_articles.title, 
-				sp_articles.date,
-				sp_articles.excerpt, 
-				sp_articles.content, 
-				sp_articles.alias, 
-				sp_articles.sortid,
-				sp_articles.views,
-				sp_articles.comnum,
-				sp_articles.top,
-				sp_articles.sorttop,
-				sp_articles.hide,
-				sp_sort.sortname,
-				sp_sort.sortalias
+		$sql = "SELECT 	sp_articles.aid,sp_articles.title, sp_articles.date,sp_articles.excerpt, sp_articles.content, sp_articles.alias, sp_articles.sortid,sp_articles.views,sp_articles.comnum,sp_articles.top,sp_articles.sorttop,sp_articles.hide,sp_sort.sortname,sp_sort.sortalias
 			FROM	
 				sp_articles LEFT JOIN sp_sort ON sp_articles.sortid = sp_sort.sortid 
-			WHERE sp_articles.sortid = ? 
+			WHERE sp_articles.sortid = ? AND sp_articles.hide = 'n'
 			ORDER BY sp_articles.aid DESC 
 			LIMIT ?,?
 		";

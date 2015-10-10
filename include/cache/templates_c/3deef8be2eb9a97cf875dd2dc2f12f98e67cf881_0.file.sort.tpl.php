@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-09 10:28:13
+<?php /* Smarty version 3.1.27, created on 2015-10-10 19:08:56
          compiled from "E:\wwwroot\wwwroot\demo\templates\default\sort.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:282875617263daa93c0_67801579%%*/
+/*%%SmartyHeaderCode:89455618f1c884cb69_10191759%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3deef8be2eb9a97cf875dd2dc2f12f98e67cf881' => 
     array (
       0 => 'E:\\wwwroot\\wwwroot\\demo\\templates\\default\\sort.tpl',
-      1 => 1444357689,
+      1 => 1444475332,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '282875617263daa93c0_67801579',
+  'nocache_hash' => '89455618f1c884cb69_10191759',
   'variables' => 
   array (
     'article' => 0,
@@ -21,13 +21,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5617263db41022_41636114',
+  'unifunc' => 'content_5618f1c8959b12_48695282',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5617263db41022_41636114')) {
-function content_5617263db41022_41636114 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5618f1c8959b12_48695282')) {
+function content_5618f1c8959b12_48695282 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '282875617263daa93c0_67801579';
+$_smarty_tpl->properties['nocache_hash'] = '89455618f1c884cb69_10191759';
 echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -67,7 +67,7 @@ $_smarty_tpl->tpl_vars['value'] = $foreach_value_Sav;
 }
 if (!$_smarty_tpl->tpl_vars['value']->_loop) {
 ?>
-		<div class="article-list">查无此分类！</div>
+		<div class="article-list">暂无数据！</div>
 	<?php
 }
 ?>

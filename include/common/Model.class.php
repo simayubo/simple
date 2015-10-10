@@ -93,8 +93,20 @@ class Model {
 			return FALSE;
 		}
 	}
-	
-	
+	//批量处理
+	public function db_batch($sql, $array) {
+
+		if (!is_array($array)) exit('Date type error!'); //检测数据是否为数组
+		$res = self::$CONNECT ->prepare($sql);
+
+		foreach ($array as $key => $value) {
+			foreach ($value as $_key => $_value) {
+				$res ->bindParam($_key,$_value);
+			}
+		}
+
+		$res ->execute();
+	}
 	/**
 	 * 析构函数
 	 * 通常用于关闭资源或释放资源

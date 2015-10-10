@@ -11,7 +11,14 @@ class CommentController extends Controller {
 	 */
 	public function show() {
 
-		$comment = $this ->D('Comment') ->getCommentList(0, 10);
+		$comment = null;
+		if (!empty($_GET['aid'])) {
+			$comment = $this ->D('Comment') ->getCommentList(0, 10, array('aid', $_GET['aid']));
+		}else if(!empty($_GET['poster'])) {
+			$comment = $this ->D('Comment') ->getCommentList(0, 10, array('poster', $_GET['poster']));
+		}else {
+			$comment = $this ->D('Comment') ->getCommentList(0, 10);
+		}
 
 		$this ->assign('title', '评论列表 - Simple后台管理');
 		$this ->assign('menu', 'content');
