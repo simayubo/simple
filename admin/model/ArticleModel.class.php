@@ -58,18 +58,30 @@ class ArticleModel extends Model{
 		$sql = "INSERT INTO sp_articles (title, date, excerpt, content, sortid, top, allow_remark, hide) values (:title, :date, :excerpt, :content, :sortid, :top, :allow_remark, :hide)";
 		return $this ->db_dml($sql, $data);
 	}
-
+    /**
+     * 编辑文章
+     * @param $data 传入数组
+     * @return bool|null
+     */
+    public function edit($data) {
+        $sql = "UPDATE sp_articles SET title=:title, date=:date, content=:content, sortid=:sortid, top=:top,
+ allow_remark=:allow_remark, `hide`=:hide WHERE aid=:aid";
+        return $this ->db_dml($sql, $data);
+    }
 	//统计数量
 	public function count() {
-		
 		$sql = "SELECT count(`aid`) FROM sp_articles";
 		$arr = $this ->db_dql($sql,null,1);
 		return $arr['count(`aid`)'];
 	}
 	//获取最新文章列表
 	public function getNewArticleList($num) {
-		
 		$sql = "SELECT aid, title FROM sp_articles WHERE hide = 'n' ORDER BY aid DESC LIMIT 0,?";
 		return $this ->db_dql($sql, array($num));
 	}
+    //删除文章
+    public function del($data) {
+        $sql = "DELETE FROM sp_articles WHERE aid=:aid";
+        return $this ->db_batch($sql, $data);
+    }
 }

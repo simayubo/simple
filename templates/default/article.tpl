@@ -3,7 +3,9 @@
 	<div class="article-list">
 		<{if $article eq null}>
 			没有找到此文章！
-		<{else}>
+		<{elseif $article.hide eq y}>
+            没有找到此文章！
+        <{else}>
 			<h1><a href="/Article/show/id/<{$article.aid}>" title="<{$article.title}>"><{$article.title}></a></h1>
 			<span><a href="#"><{$article.sortname}></a> | <a><{$article.date}></a> | <a href="#comment">评论<{$article.comnum}>次</a><!--  | <a href="#">阅读<{$article.views}>次</a> --></span>
 			<p><{$article.content|htmlspecialchars_decode}></p>
@@ -28,6 +30,7 @@
 				<p><{$value.content}> &nbsp;<a>回复</a></p>
 			</div>
 		<{/foreach}>
+        <{if $article.allow_remark eq y}>
 		<form action="/Comment/add_verify" method="post">
 			<h4 style="border-top:1px solid #dedede; padding-top:10px;">发表评论:</h4><br/>
 			<label>昵称：<font color='red'>*</font></label>
@@ -42,6 +45,9 @@
 			<input type="hidden" name="aid" value="<{$article.aid}>" />
 			<label><input type="submit" value='提交' style="width:30%;" /></label>
 		</form>
+        <{else}>
+        <font color='red'>管理员已关闭此篇文章的评论</color>
+        <{/if}>
 		<{/if}>
 	</div>
 </div>

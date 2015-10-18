@@ -27,7 +27,7 @@ class Model {
 		$DB_NAME = 'demo';
 		$DB_PWD  = '';
 		$DB_USER = 'root';
-		
+		$connect = null;
 		try {
 			$connect = new PDO("mysql:host=".$DB_HOST.";dbname=".$DB_NAME."", $DB_USER, $DB_PWD); 
 			$connect ->exec("SET names utf8");
@@ -37,13 +37,12 @@ class Model {
 		}
 		self::$CONNECT = $connect;
 	}
+
 	/**
-	 * 自定义dql语句
-	 * 用于 SELECT 查询语句
-	 * @param str   $sql    传入sql语句
-	 * @param array $array  传入占位数据，以数组形式传入
-	 * @param int   $find   如果为1则返回单条数据，0为返回列表
-	 * @return 数组 or False
+	 * @param $sql
+	 * @param null $array 传入数组
+	 * @param int $find 0-> 默认返回二维数组 1->返回一维数组
+	 * @return array|bool
 	 */
 	public function db_dql($sql, $array = null, $find = 0) {
 		
@@ -75,8 +74,8 @@ class Model {
 	/**
 	 * 自定义dml语句
 	 * 用于INSECT, DELETE, UPDATE 操作
-	 * @param $sql   传入sql语句
-	 * @param $array 传入占位符数据
+	 * @param string $sql   传入sql语句
+	 * @param array $array 传入占位符数据
 	 */
 	public function db_dml($sql, $array = array()) {
 		
@@ -102,10 +101,9 @@ class Model {
 		foreach ($array as $key => $value) {
 			foreach ($value as $_key => $_value) {
 				$res ->bindParam($_key,$_value);
+                $res ->execute();
 			}
 		}
-
-		$res ->execute();
 	}
 	/**
 	 * 析构函数

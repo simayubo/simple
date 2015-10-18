@@ -62,7 +62,7 @@ textarea {font-size: 100%;overflow: auto;vertical-align: top;}
 #footer a { text-decoration: underline; }
 
 @media (max-width:579px){ /* 小于等于 579px */
-	#main { max-width:579px; margin: 0 auto; padding: 10px 10px 0 10px; }
+	#main { width:90%; margin: 10px auto; padding: 10px 10px 0 10px; }
 	
 }
 @media (min-width:580px){ /* 大于等于 580px */

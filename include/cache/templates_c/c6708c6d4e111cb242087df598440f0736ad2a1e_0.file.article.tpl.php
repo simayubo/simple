@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-08 19:02:24
+<?php /* Smarty version 3.1.27, created on 2015-10-18 10:21:25
          compiled from "E:\wwwroot\wwwroot\demo\templates\default\article.tpl" */ ?>
 <?php
-/*%%SmartyHeaderCode:1116956164d4028d7b0_33043242%%*/
+/*%%SmartyHeaderCode:276595623022523c681_05092191%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c6708c6d4e111cb242087df598440f0736ad2a1e' => 
     array (
       0 => 'E:\\wwwroot\\wwwroot\\demo\\templates\\default\\article.tpl',
-      1 => 1444302107,
+      1 => 1445134879,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1116956164d4028d7b0_33043242',
+  'nocache_hash' => '276595623022523c681_05092191',
   'variables' => 
   array (
     'article' => 0,
@@ -24,13 +24,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_56164d40378533_68054082',
+  'unifunc' => 'content_56230225343384_63252237',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56164d40378533_68054082')) {
-function content_56164d40378533_68054082 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56230225343384_63252237')) {
+function content_56230225343384_63252237 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '1116956164d4028d7b0_33043242';
+$_smarty_tpl->properties['nocache_hash'] = '276595623022523c681_05092191';
 echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -38,7 +38,9 @@ echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smart
 	<div class="article-list">
 		<?php if ($_smarty_tpl->tpl_vars['article']->value == null) {?>
 			没有找到此文章！
-		<?php } else { ?>
+		<?php } elseif ($_smarty_tpl->tpl_vars['article']->value['hide'] == 'y') {?>
+            没有找到此文章！
+        <?php } else { ?>
 			<h1><a href="/Article/show/id/<?php echo $_smarty_tpl->tpl_vars['article']->value['aid'];?>
 " title="<?php echo $_smarty_tpl->tpl_vars['article']->value['title'];?>
 "><?php echo $_smarty_tpl->tpl_vars['article']->value['title'];?>
@@ -97,6 +99,7 @@ $foreach_value_Sav = $_smarty_tpl->tpl_vars['value'];
 $_smarty_tpl->tpl_vars['value'] = $foreach_value_Sav;
 }
 ?>
+        <?php if ($_smarty_tpl->tpl_vars['article']->value['allow_remark'] == 'y') {?>
 		<form action="/Comment/add_verify" method="post">
 			<h4 style="border-top:1px solid #dedede; padding-top:10px;">发表评论:</h4><br/>
 			<label>昵称：<font color='red'>*</font></label>
@@ -113,6 +116,9 @@ $_smarty_tpl->tpl_vars['value'] = $foreach_value_Sav;
 " />
 			<label><input type="submit" value='提交' style="width:30%;" /></label>
 		</form>
+        <?php } else { ?>
+        <font color='red'>管理员已关闭此篇文章的评论</color>
+        <?php }?>
 		<?php }?>
 	</div>
 </div>

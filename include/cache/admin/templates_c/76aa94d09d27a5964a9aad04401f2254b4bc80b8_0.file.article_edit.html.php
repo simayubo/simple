@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-10 18:22:33
+<?php /* Smarty version 3.1.27, created on 2015-10-18 10:24:38
          compiled from "E:\wwwroot\wwwroot\demo\admin\template\article_edit.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:153165618e6e93fb958_04878295%%*/
+/*%%SmartyHeaderCode:21105562302e61bf4d4_14370303%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '76aa94d09d27a5964a9aad04401f2254b4bc80b8' => 
     array (
       0 => 'E:\\wwwroot\\wwwroot\\demo\\admin\\template\\article_edit.html',
-      1 => 1444472541,
+      1 => 1445134919,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '153165618e6e93fb958_04878295',
+  'nocache_hash' => '21105562302e61bf4d4_14370303',
   'variables' => 
   array (
     'article' => 0,
@@ -22,13 +22,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5618e6e949a796_80377933',
+  'unifunc' => 'content_562302e6261968_15337285',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5618e6e949a796_80377933')) {
-function content_5618e6e949a796_80377933 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_562302e6261968_15337285')) {
+function content_562302e6261968_15337285 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '153165618e6e93fb958_04878295';
+$_smarty_tpl->properties['nocache_hash'] = '21105562302e61bf4d4_14370303';
 echo $_smarty_tpl->getSubTemplate ("header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -97,7 +97,7 @@ if (!$_smarty_tpl->tpl_vars['value']->_loop) {
 " />
 		<div class='sub'>
 			<button type='submit' name='do' value='save' class='save'>保存草稿</button>
-			<button type='submit' name='do' value='post' class='post'>发表文章</button>
+			<button type='submit' name='do' value='post' class='post'>保存发布</button>
 		</div>
 	</div> 
 	</form>

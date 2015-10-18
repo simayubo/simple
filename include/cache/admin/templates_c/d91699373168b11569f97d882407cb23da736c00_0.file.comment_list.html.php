@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-10 11:26:29
+<?php /* Smarty version 3.1.27, created on 2015-10-18 14:15:58
          compiled from "E:\wwwroot\wwwroot\demo\admin\template\comment_list.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:2999256188565c15135_29146961%%*/
+/*%%SmartyHeaderCode:41465623391e5bd4e8_80714306%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd91699373168b11569f97d882407cb23da736c00' => 
     array (
       0 => 'E:\\wwwroot\\wwwroot\\demo\\admin\\template\\comment_list.html',
-      1 => 1444447563,
+      1 => 1445148923,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2999256188565c15135_29146961',
+  'nocache_hash' => '41465623391e5bd4e8_80714306',
   'variables' => 
   array (
     'comment' => 0,
@@ -21,13 +21,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_56188565d004a2_78409784',
+  'unifunc' => 'content_5623391e682426_68143412',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_56188565d004a2_78409784')) {
-function content_56188565d004a2_78409784 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_5623391e682426_68143412')) {
+function content_5623391e682426_68143412 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '2999256188565c15135_29146961';
+$_smarty_tpl->properties['nocache_hash'] = '41465623391e5bd4e8_80714306';
 echo $_smarty_tpl->getSubTemplate ("header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -103,7 +103,7 @@ if (!$_smarty_tpl->tpl_vars['value']->_loop) {
 			<option value='unhide'>审核</option>
 			<option value='hide'>取消审核</option>
 		</select>
-		<input type='submit' value='提交' class='sub' />
+		<input type='submit' value='提交' onclick="return confirm('确定你的操作？')" class='sub' />
 	</div>
 	<div class='page-right'>
 		<ul>

@@ -1,0 +1,79 @@
+<{include file="header.html"}>
+<div class='title-nav'>分类列表</div>
+<form action='' method='post'>
+    <div class='article-list'>
+        <table cellspacing="0" cellpadding="0">
+            <tr>
+                <th><input type="checkbox" id="btu" value="全选" /></th>
+                <th>分类ID</th>
+                <th>分类名称</th>
+                <th>别名</th>
+                <th>帖子数量</th>
+                <th>操作</th>
+            </tr>
+            <{foreach from=$sort item=value}>
+            <tr>
+                <td><input name="a[]" type="checkbox" value="" /></td>
+                <td><{$value.sortid}></td>
+                <td><{$value.sortname}></td>
+                <td><{$value.sortalias}></td>
+                <th><{$value.articlenum}></th>
+                <th><a href="#">编辑</a> | <a href="#">删除</a></th>
+            </tr>
+            <{foreachelse}>
+            <tr><td>暂无分类</td></tr>
+            <{/foreach}>
+        </table>
+    </div>
+    <div class='page'>
+        <div class='page-left'>
+            <select name='type'  class='sel'>
+                <option value='-1' selected = "selected">选项</option>
+                <option value='delete'>删除</option>
+            </select>
+            <input type='submit' value='提交' class='sub' />
+        </div>
+        <div class='page-right'>
+            <ul>
+                <li> <a href="#" class='menu'>1</a></li>
+                <li> <a href="#">2</a></li>
+                <li> <a href="#">3</a></li>
+                <li> <a href="#">4</a></li>
+                <li> <a href="#">5</a></li>
+                <li> <a href="#">》</a></li>
+            </ul>
+        </div>
+    </div>
+</form>
+<{include file="footer.html"}>
+<script type="text/javascript">
+
+    window.onload=function()
+    {
+        var arr =document.getElementsByTagName('input');
+        var b = document.getElementById("btu");
+        var iSelect=true;
+        b.onclick=function()
+        {
+            if(iSelect==true)
+            {
+                for(var i=0;i<arr.length;i++)
+                {
+                    arr[i].checked=true;
+                }
+                iSelect=false;
+                b.value='反选';
+            }
+            else if(iSelect==false)
+            {
+                for(var i=0;i<arr.length;i++)
+                {
+                    arr[i].checked=false;
+                }
+                iSelect=true;
+                b.value='全选';
+            }
+
+        }
+    }
+</script>

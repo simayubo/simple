@@ -15,7 +15,7 @@ if( !defined('APP_NAME')) { exit('Error!'); }
 require_once ROOT_PATH.'include/common/Controller.class.php';
 
 class ArticleController extends Controller {
-	
+
 	public function show() {
 
 		if (!empty($_GET['id'])) {
@@ -24,7 +24,7 @@ class ArticleController extends Controller {
 			
 			$common  = $this ->A('Common') ->common();
 			$comment = $this ->D('Comment')->getCommentList(array($id, 0, 10));	
-			
+
 			$d_article = $this ->D('Article');
 			$article = $d_article->getArticle($id);
 			//相邻文章

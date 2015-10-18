@@ -14,7 +14,7 @@
 		</tr>
 		<{foreach from=$article item=value}>
 			<tr>
-				<td><input name="a[]" type="checkbox" value="" /></td>
+				<td><input name="a[]" type="checkbox" value="<{$value.aid}>" /></td>
 				<td><div class='comment-num'><a href="/admin.php?c=Comment&a=show&aid=<{$value.aid}>" title='点击查看此文章的所有评论'><{$value.comnum}></a></div></td>
 				<td>
 					<{if $value.top eq y}><span class='top'>置顶</span><{/if}>
@@ -37,7 +37,7 @@
 			<option value='-1' selected = "selected">选项</option>
 			<option value='delete'>删除</option>
 		</select>
-		<input type='submit' value='提交' class='sub' />
+		<input type='submit' value='提交' onclick="return confirm('确定你的操作？')" class='sub' />
 	</div>
 	<div class='page-right'>
 		<ul>

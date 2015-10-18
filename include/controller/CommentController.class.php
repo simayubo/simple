@@ -44,8 +44,9 @@ class CommentController extends Controller {
 		$c_model = $this ->D('Comment');
 		$_r = $c_model ->add($data);
 		if ($_r > 0) {
+            $this ->D('Article') ->commentCount($_POST['aid']);
+            unset($_SESSION['code']);
 			$url = "/Article/show/id/".I($_POST['aid'])."";
-			unset($_SESSION['code']);
 			sucMsg($url);
 		} else {
 			errMsg('评论失败！');

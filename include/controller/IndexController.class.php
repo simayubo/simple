@@ -59,6 +59,7 @@ class IndexController extends Controller {
 						header("location:/admin.php"); //跳转后台
 						
 					} else{ $err = '用户名或密码错误！'; }
+					
 				}else{ $err = '用户名或密码不能为空！'; }
 			}else { $err = '验证码错误！'; }
 		}

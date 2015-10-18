@@ -6,6 +6,9 @@ require_once ROOT_PATH.'include/common/Controller.class.php';
 
 class IndexController extends Controller {
 
+    /**
+     * 后台首页
+     */
 	public function main() {
 
 		$this ->assign('title', '后台管理首页');
@@ -15,6 +18,9 @@ class IndexController extends Controller {
 		$this ->assign('menu', 'main');
 		$this ->display('index.html');
 	}
+    /**
+     * 退出登录
+     */
 	public function outLogin() {
 
 		unset($_SESSION['login']);
@@ -25,6 +31,9 @@ class IndexController extends Controller {
 			errMsg("退出失败！");
 		}
 	}
+    /**
+     * 后台首页统计
+     */
 	public function count() {
 
 		$count = array(
@@ -34,4 +43,8 @@ class IndexController extends Controller {
 			);
 		return $count;
 	}
+    public function test() {
+
+        $this ->D('Article') ->commentCount(1);
+    }
 }

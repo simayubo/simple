@@ -1,7 +1,7 @@
-<?php /* Smarty version 3.1.27, created on 2015-10-10 17:49:02
+<?php /* Smarty version 3.1.27, created on 2015-10-18 14:15:49
          compiled from "E:\wwwroot\wwwroot\demo\admin\template\article_list.html" */ ?>
 <?php
-/*%%SmartyHeaderCode:197825618df0e8ae050_92388125%%*/
+/*%%SmartyHeaderCode:2873356233915cf31b1_83674754%%*/
 if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
@@ -9,11 +9,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '541742f15ac059c408822c24773ef2f8ca04c26e' => 
     array (
       0 => 'E:\\wwwroot\\wwwroot\\demo\\admin\\template\\article_list.html',
-      1 => 1444470540,
+      1 => 1445148946,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '197825618df0e8ae050_92388125',
+  'nocache_hash' => '2873356233915cf31b1_83674754',
   'variables' => 
   array (
     'article' => 0,
@@ -21,13 +21,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => '3.1.27',
-  'unifunc' => 'content_5618df0e955ae3_02077885',
+  'unifunc' => 'content_56233915daa464_85093326',
 ),false);
 /*/%%SmartyHeaderCode%%*/
-if ($_valid && !is_callable('content_5618df0e955ae3_02077885')) {
-function content_5618df0e955ae3_02077885 ($_smarty_tpl) {
+if ($_valid && !is_callable('content_56233915daa464_85093326')) {
+function content_56233915daa464_85093326 ($_smarty_tpl) {
 
-$_smarty_tpl->properties['nocache_hash'] = '197825618df0e8ae050_92388125';
+$_smarty_tpl->properties['nocache_hash'] = '2873356233915cf31b1_83674754';
 echo $_smarty_tpl->getSubTemplate ("header.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0);
 ?>
 
@@ -56,7 +56,8 @@ $_smarty_tpl->tpl_vars['value']->_loop = true;
 $foreach_value_Sav = $_smarty_tpl->tpl_vars['value'];
 ?>
 			<tr>
-				<td><input name="a[]" type="checkbox" value="" /></td>
+				<td><input name="a[]" type="checkbox" value="<?php echo $_smarty_tpl->tpl_vars['value']->value['aid'];?>
+" /></td>
 				<td><div class='comment-num'><a href="/admin.php?c=Comment&a=show&aid=<?php echo $_smarty_tpl->tpl_vars['value']->value['aid'];?>
 " title='点击查看此文章的所有评论'><?php echo $_smarty_tpl->tpl_vars['value']->value['comnum'];?>
 </a></div></td>
@@ -94,7 +95,7 @@ if (!$_smarty_tpl->tpl_vars['value']->_loop) {
 			<option value='-1' selected = "selected">选项</option>
 			<option value='delete'>删除</option>
 		</select>
-		<input type='submit' value='提交' class='sub' />
+		<input type='submit' value='提交' onclick="return confirm('确定你的操作？')" class='sub' />
 	</div>
 	<div class='page-right'>
 		<ul>

@@ -11,4 +11,5 @@ class SortModel extends Model {
 		$sql = "SELECT * FROM sp_sort";
 		return $this ->db_dql($sql);
 	}
+
 }

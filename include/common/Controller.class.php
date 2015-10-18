@@ -10,20 +10,15 @@
 * @author: BO
 * @version: 0.1
 */
-
 if (!defined('APP_NAME')) { exit('Error!'); }
 
 require_once ROOT_PATH.'include/lib/smarty/Smarty.class.php'; //引入Smarty模板框架
 require_once ROOT_PATH.'include/common/function.php';
 
-class Controller extends Smarty{
-	
-	/**
-	* 构造函数，初始化
-	* @date: 2015-9-7
-	* @author: BO
-	* @return: null
-	*/
+class Controller{
+
+	public $smarty = null;
+
 	public function __construct(){
 		
 		if (APP_NAME == 'Home') { //前台
@@ -41,15 +36,29 @@ class Controller extends Smarty{
 				exit("非法访问！系统已自动记录你的IP地址！");
 			}
 		}
+		$this ->smarty = new smarty();
 
-		$this->setTemplateDir($template_dir);
-		$this->setCompileDir($template_c_dir);
+		$this ->smarty ->setTemplateDir($template_dir);
+		$this ->smarty ->setCompileDir($template_c_dir);
 	}
 	/**
-	* 实例化控制器
-	* @name: 控制器名
-	* @return: 对象
-	*/
+	 * 调用 smarty display 方法
+	 */
+	public function display($template = null, $cache_id = null, $compile_id = null, $parent = null){
+		$this ->smarty ->display($template, $cache_id, $compile_id , $parent);
+	}
+
+	/**
+	 * 调用 smarty assign 方法
+	 */
+	public function assign($tpl_var, $value = null, $nocache = false) {
+		$this ->smarty ->assign($tpl_var, $value, $nocache);
+	}
+	/**
+	 * 实例化控制器
+	 * @name: 控制器名
+	 * @return: 对象
+	 */
 	public function A($name) {
 		
 		if (APP_NAME == 'Home') {
@@ -57,9 +66,8 @@ class Controller extends Smarty{
 			require_once ROOT_PATH.'include/controller/'.$name.'Controller.class.php';
 		}else if (APP_NAME == 'Admin') {
 
-			require_once ROOT_PATH.'admin/controller/'.$name.'Controller.class.php';
+			require_once ROOT_PATH . 'admin/controller/' . $name . 'Controller.class.php';
 		}
-		
 		$name = $name.'Controller';
 		return $_r = new $name();
 	}
