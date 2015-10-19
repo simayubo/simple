@@ -36,7 +36,7 @@ class SortModel extends Model{
      * @param $data 带占位符的二维数组
      */
     public function articleCount($data) {
-        $sql = "UPDATE sp_sort SET articlenum = (SELECT count(aid) FROM sp_articles WHERE sortid = :sortid) WHERE sortid = :sort";
+        $sql = "UPDATE sp_sort SET articlenum = (SELECT count(aid) FROM sp_articles WHERE sortid = :sortid AND hide = 'n') WHERE sortid = :sort";
         return $this ->db_batch($sql, $data);
     }
 

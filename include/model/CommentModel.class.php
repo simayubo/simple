@@ -25,13 +25,13 @@ class CommentModel extends Model {
 	//获取对应文章评论列表
 	public function getCommentList($data) {
 		
-		$sql = "SELECT * FROM sp_comment WHERE aid = ? LIMIT ?,?";
+		$sql = "SELECT * FROM sp_comment WHERE aid = ? AND hide='n' LIMIT ?,?";
 		return $this ->db_dql($sql, $data);
 	}
 	//获取侧栏评论列表
 	public function getSidebarCommentList($data) {
 		
-		$sql = "SELECT cid, aid, poster, content FROM sp_comment ORDER BY cid DESC LIMIT ?,?";
+		$sql = "SELECT cid, aid, poster, content FROM sp_comment WHERE hide='n'ORDER BY cid DESC LIMIT ?,?";
 		$arr = $this ->db_dql($sql, $data);
 		
 		$res = array();

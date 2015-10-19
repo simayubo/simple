@@ -57,8 +57,9 @@ class CommentModel extends Model{
 		}
 		return $res;
 	}
-	public function del( $array ) {
+	public function del($data) {
 
-		$sql = "DELETE FROM sp_comment WHERE ";
+		$sql = "DELETE FROM sp_comment WHERE aid=:aid";
+        return $this ->db_batch($sql, $data);
 	}
 }

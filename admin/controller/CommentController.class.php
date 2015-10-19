@@ -33,6 +33,7 @@ class CommentController extends Controller {
 			
 			$r = $this ->D('Comment') ->setHide($_GET['hide'], $_GET['cid']);
 			if ($r > 0) {
+
 				sucMsg('/admin.php?c=Comment&a=show');
 			}else{
 				errMsg('修改失败！');

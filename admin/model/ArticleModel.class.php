@@ -84,4 +84,9 @@ class ArticleModel extends Model{
         $sql = "DELETE FROM sp_articles WHERE aid=:aid";
         return $this ->db_batch($sql, $data);
     }
+    //统计对应文章评论数
+    public function commentCount($aid) {
+        $sql = "UPDATE sp_articles SET comnum = (SELECT count(cid) FROM sp_comment WHERE aid = ? AND hide = 'n') WHERE aid = ?";
+        return $this ->db_dml($sql, array($aid, $aid));
+    }
 }

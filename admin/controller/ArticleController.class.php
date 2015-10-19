@@ -70,17 +70,24 @@ class ArticleController extends Controller {
             empty($_POST['a'])?errMsg('请选择文章'):'';
             if($_POST['type'] == 'delete' ) {
                 $_a = $_POST['a'];
-                $aid_array  = null;
-                foreach($_a as $key => $value) {
+                $aid_array  = null; //文章id数组
+                foreach($_a as $key => $value) { //转换为二维数组
                     $aid_array[$key][':aid'] = $value;
                 }
                 //删除文章
-                if(!$d_article ->del($aid_array)) errMsg('文章删除失败！');
+                $d_article ->del($aid_array);
+                //更新所有分类下文章数量
+                $d_sort = $this ->D('Sort');
+                $sortid = array();
+                foreach($d_sort ->getSortList() as $key => $value) {
+                    $sortid[] = array(
+                        ':sortid'   =>  $value['sortid'],
+                        ':sort'     =>  $value['sortid'],
+                    );
+                }
+                $d_sort ->articleCount($sortid);
                 //删除文章对应评论
-                if(!$this ->D('Comment') ->del($aid_array)) errMsg('文章评论列表删除失败！');
-
-
-
+                $this ->D('Comment') ->del($aid_array);
                 sucMsg('/admin.php?c=Article&a=post');
             }
         }
@@ -113,6 +120,11 @@ class ArticleController extends Controller {
 				);
 			$r = $this ->D('Article') ->edit($data);
 			if ($r) {
+                $_data[] = array(
+                    ':sortid'   =>  $_POST['sortid'],
+                    ':sort'     =>  $_POST['sortid'],
+                );
+                $this ->D('Sort') ->articleCount($_data); //统计分类下文章
 				sucMsg('/admin.php?c=Article&a=post');
 			}else{
 				errMsg('保存文章失败！');
